@@ -36,7 +36,7 @@ def get_results_vector_line(delta: float) -> dict[str, float]:
 
     execution_time = end_time - start_time
 
-    results["время выполнения"] = execution_time
+    results["время выполнения (c)"] = execution_time
     return results
 
 
@@ -56,7 +56,7 @@ def get_results_double_integral(delta: float, include_boarders) -> dict[str, flo
 
     execution_time = end_time - start_time
 
-    results["время выполнения"] = execution_time
+    results["время выполнения (c)"] = execution_time
     return results
 
 
