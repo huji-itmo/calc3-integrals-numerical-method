@@ -6,6 +6,7 @@ def get_latex_table(results: list[dict[str, float]]) -> str:
     output = "\\begin{tabular}{|" + "|".join(["c"] * width) + "|}\n"
 
     # header for the table
+    output += f"    \\hline\n"
     output += f"    {' & '.join(results[0].keys())}\\\\\n"
     output += f"    \\hline\n"
 
