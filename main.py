@@ -28,7 +28,7 @@ def get_results_vector_line(delta: float) -> dict[str, float]:
         polyline, tagged_partion, f_1, f_2
     )
     results = {
-        "\\delta": delta,
+        "$\\delta$": delta,
         "интегральная сумма": integral_value,
         "отклонение": integral_value - true_value,
     }
@@ -48,7 +48,7 @@ def get_results_double_integral(delta: float, include_boarders) -> dict[str, flo
     integral_value = get_double_integral_sum(delta, greens_theorem_function, tags)
     true_value = 0  # got by analytical method
     results = {
-        "\\delta": delta,
+        "$\\delta$": delta,
         "интегральная сумма": integral_value,
         "отклонение": integral_value - true_value,
     }
