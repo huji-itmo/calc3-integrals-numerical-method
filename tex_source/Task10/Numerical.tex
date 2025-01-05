@@ -1,0 +1,48 @@
+\subsection{Численный метод.}
+\subsubsection{Результаты вычислений:}
+
+\begin{table}[h!t]
+    \centering
+    \input{Task10/python/output/table_vector_line_integral}
+    \caption{Криволинейный интеграл.}
+\end{table}
+
+\begin{table}[h!t]
+    \centering
+    \input{Task10/python/output/table_double_integral_without_boarders}
+    \caption{Двойного интеграл (минимальная сумма).}
+\end{table}
+
+\begin{table}[h!t]
+    \centering
+    \input{Task10/python/output/table_double_integral_with_boarders}
+    \caption{Двойного интеграл (максимальная сумма).}
+\end{table}
+
+Как мы видим, двойной интеграл очень долго считать для малых значений $\delta$. Возможно, потому что асимптотическая сложность $O((1/\delta)^2) \sim O(n^2) $, в отличие от криволинейного, со сложностью $O(1/\delta) \sim O(n)$
+
+\begin{quote}
+  Не так я всё это представлял, когда мы начинали. Мне грезились деньги, машины, женщины, уважение, свобода. Я всё это даже получил, более или менее, но вместе с тем пришли тюрьма, постоянный страх и кровь моих товарищей. Я держался на плаву сколько мог, но шансов становилось всё меньше.  
+\end{quote}
+\newpage
+\subsection{Программный код.}
+
+\underline{\href{https://github.com/huji-itmo/calc3-integrals-numerical-method}{Посмотреть исходный код на Github}}
+
+\subsubsection{main.py}
+\verbatiminput{Task10/python/main.py}
+
+\subsubsection{intergral\_configuration.py}
+\verbatiminput{Task10/python/integral_config.py}
+
+\subsubsection{double\_integral\_sum.py}
+\verbatiminput{Task10/python/double_integral_sum.py}
+
+\subsubsection{vector\_line\_integral\_sum.py}
+\verbatiminput{Task10/python/vector_line_integral_sum.py}
+
+\subsubsection{latex.py}
+\verbatiminput{Task10/python/latex.py}
+
+\subsubsection{plot.py}
+\verbatiminput{Task10/python/plot.py}

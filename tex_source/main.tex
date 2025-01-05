@@ -1,0 +1,79 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{graphicx}
+\usepackage[T2A]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amsmath}
+% \usepackage{xcolor}
+% \usepackage{array}
+\usepackage[left=2cm,right=2cm,top=1cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
+% \usepackage{float}
+% \usepackage{wrapfig}
+% \usepackage{tabularx}
+\usepackage{nicematrix}
+\usepackage{multirow}
+\usepackage{multicol}
+\pagestyle{empty}
+\usepackage{graphicx}
+\usepackage{amsfonts} 
+\usepackage{stix}
+
+\usepackage{nicefrac}
+\usepackage[toc,page]{appendix}
+
+\usepackage[babel=true]{microtype}
+\usepackage{indentfirst}
+\usepackage{tempora}  % Times for numbers in math mode
+% \usepackage{newtxmath}  % Times in math mode
+
+\usepackage[nottoc]{tocbibind}
+\usepackage[toc,page]{appendix}
+\usepackage{pdfpages}
+\usepackage[rightcaption]{sidecap}
+\usepackage{cite}
+\usepackage[]{acronym}
+% \usepackage[pdftex,scale={.8,.8}]{geometry}
+% \usepackage[toc]{glossaries}
+\usepackage[left,pagewise,modulo]{lineno}
+\usepackage[pdftex,colorlinks=false,hidelinks,pdfstartview=FitV]{hyperref}
+\usepackage[pagestyles,raggedright]{titlesec}
+\usepackage[export]{adjustbox}
+\usepackage{verbatim}
+\usepackage{dirtytalk}
+\usepackage{esvect}
+% чтобы можно было делать больше матрицы
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+ 
+\title{calc-sem-3-task-1}
+\author{Давид Григорьев}
+\date{November 2024}
+
+\begin{document}
+
+\input{Title}
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\input{Task1/Task1}
+\input{Task2/Task2}
+\input{Task3/Task3}
+\input{Task4/Task4}
+\input{Task5/Task5}
+\input{Task6/Task6}
+\input{Task7/Task7}
+\input{Task8/Task8}
+\input{Task9/Task9}
+\input{Task10/Task10}
+
+\end{document}

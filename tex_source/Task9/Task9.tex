@@ -1,0 +1,58 @@
+\newpage
+\section{Задание 9.}
+
+Проверить, является ли данное поле потенциальным и соленоидальным. Для потенциального поля найти его потенциал с помощью криволинейного интеграла. Провести проверку потенциала.
+
+$$\vv{a} = (2x \sin y - 2) \vv{i} + (x^2 \cos y - z^2) \vv{j} - 2yz \vv{k}.$$
+
+Воспользуемся критерием потенциальности поля и проверим, что его ротор равен нулю.
+$$\nabla \times \vv{a} = 
+\begin{vmatrix}
+\vv{i} & \vv{j} & \vv{k} \\
+\dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\
+2x \sin y - 2 & x^2 \cos y - z^2 & -2yz \\
+\end{vmatrix}$$
+
+$$\nabla \times \vv{a} = \left( \frac{\partial}{\partial y} (-2yz) - \frac{\partial}{\partial z} (x^2 \cos y - z^2) \right) \vv{i} - \left( \frac{\partial}{\partial x} (-2yz) - \frac{\partial}{\partial z} (2x \sin y - 2) \right) \vv{j} +$$
+$$ +\left( \frac{\partial}{\partial x} (x^2 \cos y - z^2) - \frac{\partial}{\partial y}(2x \sin y - 2)\right) \vv{k} = (-2z - (-2z)) \vv{i} - (0 - 0) \vv{j} + (2x \cos y - 2x \cos y) \vv{k} =$$
+$$=0\vv{i} + 0\vv{j} + 0\vv{k} = 0 \Rightarrow \text{Поле потенциально.}$$
+
+Воспользуемся критерием соленоидальности поля и проверим, что его дивергенция равна нулю.
+
+$$\nabla \cdot \vv{a} = \frac{\partial}{\partial x}(2x \sin y - 2) + \frac{\partial}{\partial y}(x^2 \cos y - z^2) + \frac{\partial}{\partial z}(-2yz)= $$
+$$= 2 \sin y + (-x^2 \sin y) + (-2y) = 2 \sin y - x^2 \sin y - 2y \neq \Rightarrow \text{Поле \textbf{не} солеидально.}0$$
+
+Теперь найден потенциал поля. Для этого нужно найти интеграл по этому полю от $(x_0, y_0, z_0)$ до $(x,y,z)$. Так как поле потенциально, криволинейный интеграл не зависит от пути, поэтому возьмем точку $(0,0,0)$. Пусть $\phi$ - потенциал поля, т.е. $\vv{a} = \text{grad}\phi$
+$$\frac{\partial \phi}{\partial x} = 2x \sin y - 2, \quad \frac{\partial \phi}{\partial y} = x^2 \cos y - z^2, \quad \frac{\partial \phi}{\partial z} = -2yz$$
+
+Будем действовать по чуть-чуть, по одной переменной. Так как нам нужно воспользоваться криволинейным интегралом, то запишем одну идею.
+
+$$\phi(x,y,z) = \int 2x \sin y - 2\, dx = 2x^2 \sin y - 2x +  f(y,z)$$
+Тут $f$ - это какая-то функция двух переменных $y$ и $z$ (чтобы $\frac{\partial f}{\partial x} = 0$). Потом мы придумаем $g(z)$, чтобы $\frac{\partial g}{\partial y} = 0$. Чтобы сделать это в виде криволинейного интеграла, запишем так.
+
+$$\phi(x,y,z) = \int_\gamma \text{, где $\gamma$ - путь от $(0,0,0)$ до $(x,y,z)$}$$
+
+$$\int_\gamma = \int_0^x \vv{a_x}(t,0,0)\,dt + \int_0^y \vv{a_x}(x,t,0)\,dt + \int_0^z \vv{a_x}(x,y,t)\,dt$$
+
+$$\int_0^x \vv{a_x}(t,0,0)\,dt = \int_0^x 2t \sin 0 - 2\,dt = \int_0^x (- 2)\,dt = -2x$$
+
+$$\int_0^y \vv{a_y}(x,t,0)\,dt = \int_0^y x^2 \cos{t} - 0^2 \,dt =x^2 \sin{y} $$
+
+$$\int_0^z \vv{a_z}(x,y,t)\,dt =\int_0^z -2yt\,dt = -yz^2$$
+
+$$\text{Тогда } \phi(x,y,z) = -2x + x^2 \sin{y} - yz^2$$
+\begin{center}
+    Сделаем проверку $\vv{a} = \text{grad}\phi$.
+\end{center}
+
+$$\text{grad}\phi = \left(\dfrac{\partial \phi}{\partial x},\dfrac{\partial \phi}{\partial y}, \dfrac{\partial \phi}{\partial z} \right)$$
+
+$$\dfrac{\partial \phi}{\partial x} = \dfrac{\partial}{\partial x}\left(-2x + x^2 \sin{y} - yz^2\right) = -2 + 2x\sin{y}$$
+
+$$\dfrac{\partial \phi}{\partial y} = \dfrac{\partial}{\partial y}\left(-2x + x^2 \sin{y} - yz^2\right) = x^2\cos{y} - z^2$$
+
+$$\dfrac{\partial \phi}{\partial z} = \dfrac{\partial}{\partial z}\left(-2x + x^2 \sin{y} - yz^2\right) = -2yz$$
+\begin{center}
+    Действительно, $\text{grad}\phi = \vv{a}$, значит у нас еще одна победа.
+\end{center}
+    

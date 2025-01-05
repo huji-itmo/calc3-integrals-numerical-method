@@ -1,0 +1,67 @@
+\newpage
+\section{Задание 6.}
+
+Найти циркуляцию векторного поля $\vv{a}(x, y, z)$ вдоль замкнутого контура Г (ориентацию контура выбрать самостоятельно). Вычислить двумя способами:
+с помощью криволинейного и поверхностного интегралов.
+
+$$\vv{a} = y\vv{i} - x\vv{j} + z^2 \vv{k} \quad\text{Г}: z=3\left(x^2+y^2\right)+1, z = 4$$
+
+Заметим, что контур Г можно упростить.
+
+$$3\left(x^2+y^2\right)+1 = 4 \Rightarrow x^2+y^2 = 1^2$$
+
+\subsection{Решение с помощью криволинейного интеграла.}
+
+ Циркуляцию векторного поля $\vv{a}$ вдоль Г найдем по определению, как криволинейный интеграл второго рода.
+
+ $$C(\vv{a}) =  \ointctrclockwise \limits_{\text{Г}} \vv{a} \cdot d\vv{r}$$
+
+ Параметризуем наше уравнение.
+
+ Путь, по которому мы проходим, назовем его $\gamma: \mathbb{R} \rightarrow \mathbb{R}^3$ параметризуем переменной $t$, $t\in(0, 2\pi)$.
+ $$\gamma(t) = \left(\cos{t}, \sin{t}, 4\right)$$
+ Касательная к этому пути будет $\gamma'(t)$.
+
+ $$\gamma'(t) = \left(-\sin{t}, \cos{t}, 0\right)$$
+
+Теперь, с помощью теоремы о вычислении КИ-2.
+
+$$C(\vv{a})=\ointctrclockwise \limits_{\text{Г}} \vv{a} \cdot d\vv{r} = \int_0^{2\pi} \vv{a}(\gamma(t))\cdot\gamma'(t)\, dt$$
+
+ Посчитаем подынтегральную функцию.
+ $$\vv{a}(\gamma(t)) = \sin{t}\cdot\vv{i} - \cos{t}\cdot\vv{j} + 4^2$$
+ $$\vv{a}(\gamma(t))\cdot\gamma'(t) = \left(\sin{t}, - \cos{t}, 16\right) \cdot \left(-\sin{t}, \cos{t}, 0\right) = -\sin^2{t}-\cos^2{t} + 16\cdot0 = -1$$
+Тогда вернёмся к интегралу.
+
+$$C(\vv{a}) = \int_0^{2\pi} \vv{a}(\gamma(t))\cdot\gamma'(t)\, dt = \int_0^{2\pi} -1 \, dt = \boxed{-2\pi}$$
+
+\subsection{Решение с помощью поверхностного интеграла.}
+
+Тут нам поможет т. Стокса, которая связывает циркуляцию с поверхностным интегралом (потоком). Пусть Г $= \partial\Sigma$
+
+$$C_{\partial\Sigma}(\vv{a}) = \Pi_{\Sigma}(\vv{a}) \Rightarrow \ointctrclockwise \limits_{\partial\Sigma} \vv{a} \cdot d\vv{r} = \iint \limits_{\Sigma} \text{rot}\vv{a} \cdot \vv{N_0} d\vv{S}$$
+\begin{center}
+    Найдем ротор $\vv{a}$. По определению $\text{rot}\vv{a} = \nabla \times \vv{a}$
+    
+     $$\nabla \times \vv{a} = 
+    \begin{vmatrix}
+        \vv{i} & \vv{j} & \vv{k} \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        y & -x & z^2 \\
+    \end{vmatrix} =
+    \left( \frac{\partial}{\partial y}\left(z^2\right) - \frac{\partial}{\partial z}\left(-x\right) \right) \vv{i} 
+    - \left( \frac{\partial}{\partial x}\left(z^2\right) - \frac{\partial }{\partial z}\left(y\right) \right) \vv{j} 
+    + \left( \frac{\partial }{\partial x}\left(-x\right) - \frac{\partial}{\partial y}\left(y\right) \right) \vv{k} =$$
+    $$ =0 \vv{i} - 0 \vv{j} - 2\vv{k}$$
+    Так как поверхность $\Sigma$ является просто диском, параллельным плоскости $XY$, то её вектор нормали в любой точке будет $N_0 = (0,0,1)$
+    Осталось вспомнить, что $d\vv{S} = (dy\,dz, dx\,dz, dx\,dy)$
+    
+    Теперь посчитаем интеграл.
+    
+    $$\iint \limits_{\Sigma} \text{rot}\vv{a} \cdot \vv{N_0} d\vv{S} = \iint \limits_{\Sigma} \left((0,0,-2)\cdot(0,0,1) \right)\cdot(dy\,dz, dx\,dz, dx\,dy) = \iint \limits_{\Sigma} -2 dx \,dy = -2\iint \limits_{\Sigma} dx \,dy$$
+    Причем этот двойной интеграл - это площадь круга с радиусом $1$, и он равен $\pi$.
+    
+    $$C_{\partial\Sigma}(\vv{a}) = -2\iint \limits_{\Sigma} dx \,dy = \boxed{-2\pi}$$
+    
+    Ответы сошлись, значит всё правильно :)
+\end{center}
