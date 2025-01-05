@@ -21,9 +21,6 @@ def construct_polyline(points):
     plt.show()
 
 
-import matplotlib.pyplot as plt
-
-
 def plot_tagged_partition(
     polyline_points: list[tuple[float, float]],
     tagging_points: list[tuple[float, float]],
@@ -52,3 +49,16 @@ def plot_tagged_partition(
 
     plt.grid(True)
     plt.savefig(path)
+
+def plot_points(points: list[tuple[float, float]]):
+    tag_x, tag_y = zip(*points)
+    plt.scatter(
+        tag_x, tag_y, marker="x", color="red", s=100, label="Tagging Points"
+    )
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+
+    plt.legend()
+
+    plt.grid(True)
+    plt.show()

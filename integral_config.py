@@ -1,6 +1,5 @@
 import math
 
-
 # https://www.desmos.com/Calculator/3yyizfiinx
 # кривая L задается как x^2+y^2=16, x+y<0;
 def natural_parametrization_path(t: float) -> tuple[float, float]:
@@ -26,3 +25,13 @@ def f_1(xy: tuple[float, float]):
 def f_2(xy: tuple[float, float]):
     x, y = xy
     return -(x**2) * y
+
+def is_inside_the_shape(xy: tuple[float, float]) -> bool:
+    x,y = xy
+    return x**2 + y**2 <= 16 and x+y<=0
+
+def greens_theorem_function(xy: tuple[float, float]) -> float:
+    x,y = xy
+    #dQ/dx - dP/dy
+    # -2xy - 2xy = -4xy
+    return -4 * x * y

@@ -2,7 +2,6 @@ import math
 
 from plot import plot_tagged_partition
 
-
 def get_polyline_points(
     delta: float, natural_parametrization_path
 ) -> list[tuple[float, float]]:
@@ -19,7 +18,7 @@ def get_polyline_points(
     return result
 
 
-def get_tagged_partition(
+def get_tags_polyline(
     polyline_points: list[tuple[float, float]]
 ) -> list[tuple[float, float]]:
 
@@ -34,7 +33,7 @@ def get_tagged_partition(
     return integration_points
 
 
-def calculate_integral_sum(
+def calculate_vector_line_integral_sum(
     polyline_points: list[tuple[float, float]],
     tagging_points: list[tuple[float, float]],
     x_func,
@@ -53,19 +52,3 @@ def calculate_integral_sum(
         integral_sum += y_func(tagging_points[i]) * delta_y
 
     return integral_sum
-
-
-def get_vector_line_integral_sum_results(
-    delta: float, natural_parametrization_path, f_1, f_2
-) -> dict[str, float]:
-    polyline = get_polyline_points(delta, natural_parametrization_path)
-
-    tagged_partion = get_tagged_partition(polyline)
-    true_value = 0  # got by analytical method
-    integral_value = calculate_integral_sum(polyline, tagged_partion, f_1, f_2)
-
-    return {
-        "\\delta": delta,
-        "интегральная сумма": integral_value,
-        "отклонение": integral_value - true_value,
-    }
