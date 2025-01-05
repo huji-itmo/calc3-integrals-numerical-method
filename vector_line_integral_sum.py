@@ -1,7 +1,5 @@
 import math
 
-from plot import plot_tagged_partition
-
 def get_polyline_points(
     delta: float, natural_parametrization_path
 ) -> list[tuple[float, float]]:
